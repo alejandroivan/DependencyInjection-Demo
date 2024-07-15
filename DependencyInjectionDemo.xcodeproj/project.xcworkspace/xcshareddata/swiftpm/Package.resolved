@@ -1,0 +1,15 @@
+{
+  "originHash" : "4c9af5b8dde804ed96606f02bfeb95d87aac3058a31dfa675002a6a0f7433775",
+  "pins" : [
+    {
+      "identity" : "dependencyinjection",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alejandroivan/DependencyInjection",
+      "state" : {
+        "revision" : "85cf3c5b49b6f9e3b18883071e446043ce27b046",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
