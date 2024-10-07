@@ -10,16 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @Inject private var demo: DemoProtocol?
+    @Inject private var demo: DemoProtocol
+    @SafeInject private var safeDemo: DemoProtocol?
+
     @State private var manualResolve: DemoManualResolveProtocol?
 
     var body: some View {
-        VStack {
-            if let demo {
-                Text(demo.title)
-            } else {
-                Text("Cannot load injection DemoProtocol.")
-            }
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Normal injection: " + demo.title)
+            Text("Safe injection: " + String(describing: safeDemo?.title))
 
             if let manualResolve {
                 Text(manualResolve.paragraph)
@@ -27,7 +26,7 @@ struct ContentView: View {
                 Text("Cannot resolve DemoManualResolveProtocol.")
             }
         }
-        .padding()
+        .padding(10)
         .onAppear {
             manualResolve = try? Resolver.shared.resolve(DemoManualResolveProtocol.self)
         }
